@@ -131,9 +131,11 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .case .meta p{color:var(--mute);font-size:15px;line-height:1.6}
 .case .meta .res{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);font-weight:700;font-size:15px;display:flex;gap:10px;align-items:baseline}
 .case .meta .res .arr{font-family:var(--en)}
-.stage{position:relative;aspect-ratio:16/10;background:var(--line);border-radius:6px;overflow:hidden;border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:1px}
-.stage .side{position:relative;overflow:hidden;background:#fff}
-.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:7%}
+.stage{position:relative;aspect-ratio:16/10;background:#fff;border-radius:6px;overflow:hidden;border:1px solid var(--line);user-select:none;touch-action:pan-y;cursor:ew-resize}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.stage .after-layer{position:absolute;inset:0;clip-path:inset(0 0 0 var(--pos,50%))}
+.stage .bar{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:1px;background:var(--red);transform:translateX(-.5px);pointer-events:none}
+.stage .bar::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;border:1.5px solid var(--red);background:rgba(255,255,255,.9)}
 .stage .lb{position:absolute;bottom:14px;font-family:var(--en);font-size:10px;letter-spacing:.18em;font-weight:700;padding:5px 9px;pointer-events:none;z-index:2}
 .stage .lb.b{left:14px;color:var(--mute);background:var(--paper)}
 .stage .lb.a{right:14px;color:#fff;background:var(--ink)}
@@ -368,15 +370,15 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
     <article class="case rv">
       <div class="meta"><span class="no">Case 01</span><h3 class="serif">제조 · 가전 · CI 리뉴얼</h3><p>설명하는 사명에서, 손끝의 감각이 남는 이름으로.</p><div class="res"><span class="arr">→</span><span>워드마크와 제품, 인쇄물까지 하나의 톤</span></div></div>
-      <div class="stage"><figure class="side"><img src="assets/w_ba_bokuk_b.webp" alt="리뉴얼 전 보국전자 로고" loading="lazy"><span class="lb b">BEFORE</span></figure><figure class="side"><img src="assets/w_ba_bokuk_a.webp" alt="리뉴얼 후 보국전자 로고" loading="lazy"><span class="lb a">AFTER</span></figure></div>
+      <div class="stage" style="--pos:50%"><img class="before" src="assets/w_ba_bokuk_b.webp" alt="리뉴얼 전 보국전자 로고" loading="lazy"><div class="after-layer"><img src="assets/w_ba_bokuk_a.webp" alt="리뉴얼 후 보국전자 로고" loading="lazy"></div><span class="lb b">BEFORE</span><span class="lb a">AFTER</span><div class="bar"></div></div>
     </article>
     <article class="case alt rv">
       <div class="meta"><span class="no">Case 02</span><h3 class="serif">협회 · 인증기관 · CI 리뉴얼</h3><p>흩어진 소용돌이에서, 단단한 세 글자로.</p><div class="res"><span class="arr">→</span><span>인증서와 현판에서 먼저 읽히는 형태</span></div></div>
-      <div class="stage"><figure class="side"><img src="assets/w_ba_kmr_b.webp" alt="리뉴얼 전 한국경영인증원 로고" loading="lazy"><span class="lb b">BEFORE</span></figure><figure class="side"><img src="assets/w_ba_kmr_a.webp" alt="리뉴얼 후 한국경영인증원 로고" loading="lazy"><span class="lb a">AFTER</span></figure></div>
+      <div class="stage" style="--pos:50%"><img class="before" src="assets/w_ba_kmr_b.webp" alt="리뉴얼 전 한국경영인증원 로고" loading="lazy"><div class="after-layer"><img src="assets/w_ba_kmr_a.webp" alt="리뉴얼 후 한국경영인증원 로고" loading="lazy"></div><span class="lb b">BEFORE</span><span class="lb a">AFTER</span><div class="bar"></div></div>
     </article>
     <article class="case rv">
       <div class="meta"><span class="no">Case 03</span><h3 class="serif">유통 · 리빙 · BI 리뉴얼</h3><p>장식적인 세리프에서, 매장에 걸리는 이름으로.</p><div class="res"><span class="arr">→</span><span>매장 사인과 패키지에 그대로 적용</span></div></div>
-      <div class="stage"><figure class="side"><img src="assets/w_ba_sesa_b.webp" alt="리뉴얼 전 세사리빙 로고" loading="lazy"><span class="lb b">BEFORE</span></figure><figure class="side"><img src="assets/w_ba_sesa_a.webp" alt="리뉴얼 후 세사리빙 로고" loading="lazy"><span class="lb a">AFTER</span></figure></div>
+      <div class="stage" style="--pos:50%"><img class="before" src="assets/w_ba_sesa_b.webp" alt="리뉴얼 전 세사리빙 로고" loading="lazy"><div class="after-layer"><img src="assets/w_ba_sesa_a.webp" alt="리뉴얼 후 세사리빙 로고" loading="lazy"></div><span class="lb b">BEFORE</span><span class="lb a">AFTER</span><div class="bar"></div></div>
     </article>
     <div class="hair"></div>
     <div class="cases-more rv"><a class="tlink" href="http://www.logobank.co.kr/" target="_blank" rel="noopener">더 많은 사례, logobank.co.kr <span class="arr">↗</span></a></div>
@@ -568,6 +570,20 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
     requestAnimationFrame(tick);
   }), {threshold: .5});
   document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+
+  document.querySelectorAll('.stage').forEach(st => {
+    let manual = false;
+    const set = v => st.style.setProperty('--pos', Math.max(4, Math.min(96, v)) + '%');
+    const onS = () => { if (manual) return; const b = st.getBoundingClientRect(), vh = innerHeight; const p = Math.min(1, Math.max(0, (vh - b.top) / (vh + b.height))); set(24 + p * 52); };
+    addEventListener('scroll', onS, {passive: true}); onS();
+    if (!coarse) {
+      st.addEventListener('pointermove', e => { manual = true; const r = st.getBoundingClientRect(); set((e.clientX - r.left) / r.width * 100); });
+      st.addEventListener('pointerleave', () => { manual = false; onS(); });
+    } else {
+      st.addEventListener('pointerdown', () => manual = true, {once: true});
+      st.addEventListener('pointermove', e => { if (!manual) return; const r = st.getBoundingClientRect(); set((e.clientX - r.left) / r.width * 100); });
+    }
+  });
 
   // gallery filter
   const chips = document.getElementById('chips'), items = [...document.querySelectorAll('#bento .it')];
