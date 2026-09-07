@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>업종별 작업 실적 갤러리 | 로고뱅크, 1999년부터</title>
+<meta name="description" content="카페부터 제조업, IT 스타트업, 병의원, 공공기관까지. 로고뱅크가 진행해 온 업종별 로고 제작·CI·BI 디자인 사례를 업종 필터로 한눈에 확인하세요.">
+<link rel="canonical" href="https://logobank.co.kr/works.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="로고뱅크 | 업종별 작업 실적 갤러리">
+<meta property="og:description" content="카페부터 공공기관까지. 로고뱅크의 업종별 로고·CI·BI 디자인 사례를 확인하세요.">
+<meta property="og:image" content="https://logobank.co.kr/assets/signage.jpg">
+<meta property="og:url" content="https://logobank.co.kr/works.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="로고뱅크">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "로고뱅크",
+  "alternateName": "Logobank",
+  "url": "https://logobank.co.kr/",
+  "foundingDate": "1999",
+  "description": "로고 제작, CI·BI 디자인, 공공기관 인증마크 디자인 전문 브랜드 디자인 회사",
+  "knowsAbout": ["로고 제작", "CI 디자인", "BI 디자인", "인증마크 디자인", "브랜드 리뉴얼"]
+}
+</script>
+<style>
+/* ============ TOKENS (index.html과 동일) ============ */
+:root{
+  --bg:#FFFFFF; --bg2:#F5F5F3; --ink:#0D0D0D; --ink2:#2B2B2B; --mute:#6E6E6A; --line:#E4E4DF;
+  --red:#E0202E; --red-hot:#FF2D3B; --white:#FFFFFF;
+  --font-kr:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  --font-en:"Inter Tight","Pretendard Variable",Pretendard,sans-serif;
+  --font-serif:"Noto Serif KR",Georgia,"Times New Roman",serif;
+  --max:1360px; --gutter:clamp(20px,5vw,72px);
+  --sec:clamp(88px,12vw,168px);
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-kr);color:var(--ink);background:var(--bg);line-height:1.5;font-size:16px;overflow-x:hidden;word-break:keep-all}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+::selection{background:var(--red);color:#fff}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{font-family:var(--font-en);font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink2);display:inline-flex;align-items:center;gap:10px}
+.h2{font-weight:800;letter-spacing:-.03em;line-height:1.1;font-size:clamp(30px,4.6vw,60px)}
+.lead{font-size:clamp(16px,1.35vw,20px);color:var(--mute);line-height:1.65;max-width:60ch}
+.offwhite{background:var(--bg2)}
+.sec{padding:var(--sec) 0}
+.sec-head{display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:clamp(40px,6vw,80px)}
+@media(min-width:900px){.sec-head{grid-template-columns:1.3fr 1fr;align-items:end;gap:48px}}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;font-weight:700;font-size:15px;letter-spacing:-.01em;transition:transform .35s var(--ease),background .3s,color .3s,border-color .3s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-hot)}
+.btn-ghost{border:1.5px solid var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn .arr{display:inline-block;transition:transform .35s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+.chip{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.02em;padding:6px 11px;border:1px solid var(--line);border-radius:999px;color:var(--ink2);background:#fff}
+.tag-sample{position:absolute;top:10px;left:10px;font-family:var(--font-en);font-size:10px;letter-spacing:.18em;font-weight:700;color:var(--mute);background:rgba(255,255,255,.85);padding:4px 8px;border-radius:4px;z-index:3}
+
+/* reveal (index.html과 동일) */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* ============ NAV (index.html과 동일) ============ */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s,box-shadow .4s,backdrop-filter .4s}
+.nav.solid{background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--font-serif);font-weight:600;font-size:24px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.logo i{width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block}
+.nav-links{display:none;gap:32px;font-size:14px;font-weight:600;color:var(--ink2)}
+.nav-links a{position:relative;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--red);transition:width .3s var(--ease)}
+.nav-links a:hover::after{width:100%}
+@media(min-width:960px){.nav-links{display:flex}}
+.nav-cta{font-size:14px;font-weight:700;display:inline-flex;align-items:center;gap:6px;padding:8px 0;border-bottom:1.5px solid var(--ink)}
+.nav-cta .arr{transition:transform .35s var(--ease)}
+.nav-cta:hover .arr{transform:translateX(4px)}
+
+/* ============ WORKS HERO ============ */
+.whero{padding:128px 0 52px}
+@media(min-width:900px){.whero{padding:168px 0 68px}}
+.whero h1{margin:16px 0 20px}
+.whero .accent{color:var(--red)}
+.whero .lead{margin-top:18px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-top:26px;border-top:1px solid var(--line);margin-top:40px;max-width:640px}
+.stat b{display:block;font-family:var(--font-en);font-weight:800;font-size:clamp(22px,3.2vw,40px);letter-spacing:-.03em;line-height:1;white-space:nowrap}
+.stat b sup{font-size:.5em;color:var(--red);vertical-align:top;margin-left:2px}
+.stat>span{display:block;font-size:12.5px;color:var(--mute);margin-top:8px}
+
+/* ============ FILTER CHIPS (b.html 필터 로직 재사용, 스타일은 index.html 톤에 맞춤) ============ */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip[data-cat]{cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.chip[data-cat]:hover{border-color:var(--ink)}
+.chip[data-cat].on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.gal-count{font-size:13px;color:var(--mute);margin-top:16px}
+
+/* ============ GALLERY GRID ============ */
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+@media(min-width:700px){.gal{grid-template-columns:repeat(3,1fr);gap:18px}}
+@media(min-width:1100px){.gal{grid-template-columns:repeat(4,1fr);gap:22px}}
+.gcard{border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+@media(hover:hover){.gcard:hover{transform:translateY(-4px);box-shadow:0 30px 50px -36px rgba(0,0,0,.28)}}
+.gcard.hide{display:none}
+@keyframes gpop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.gcard:not(.hide){animation:gpop .5s var(--ease) both}
+@media(prefers-reduced-motion:reduce){.gcard:not(.hide){animation:none}}
+.gcard .media{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--bg2)}
+.gcard.wide .media{aspect-ratio:16/9}
+@media(min-width:700px){.gcard.wide{grid-column:span 2}}
+.gcard .media img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+@media(hover:hover){.gcard:hover .media img{transform:scale(1.05)}}
+.gcard .body{padding:16px 16px 20px}
+.gcard .cat{font-family:var(--font-en);font-size:10.5px;letter-spacing:.16em;font-weight:700;color:var(--mute);text-transform:uppercase}
+.gcard h3{font-size:15.5px;font-weight:700;letter-spacing:-.01em;margin:8px 0 6px;line-height:1.3}
+.gcard p{font-size:13px;color:var(--mute);line-height:1.55}
+.gal-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;margin-top:32px;padding-top:28px;border-top:1px solid var(--line)}
+.gal-foot p{color:var(--mute);font-size:15px}
+
+/* ============ CTA ============ */
+.cta-sec{text-align:center}
+.cta-sec .wrap{max-width:680px}
+.cta-sec .eyebrow{justify-content:center}
+.cta-sec .lead{margin:18px auto 0}
+.cta-sec .btn{margin-top:32px}
+
+/* ============ FOOTER (index.html과 동일) ============ */
+.footer{padding:56px 0 40px;border-top:1px solid var(--line)}
+.footer .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start}
+.footer .links{display:flex;flex-wrap:wrap;gap:20px;font-size:14px;color:var(--ink2)}
+.footer .meta{margin-top:28px;font-size:12.5px;color:var(--mute);display:flex;flex-wrap:wrap;gap:8px 20px}
+
+/* ============ STICKY CTA (mobile) ============ */
+.sticky{position:fixed;left:16px;right:16px;bottom:16px;z-index:55;display:none;transform:translateY(120%);transition:transform .5s var(--ease)}
+.sticky.show{transform:none}
+.sticky .btn{width:100%;justify-content:center;padding:17px;box-shadow:0 12px 30px rgba(224,32,46,.35)}
+@media(max-width:899px){.sticky{display:block}}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="로고뱅크 홈">Logobank<i></i></a>
+    <nav class="nav-links" aria-label="주요 메뉴">
+      <a href="index.html#diagnosis">브랜드 진단</a>
+      <a href="index.html#cases">비포·애프터</a>
+      <a href="index.html#marks">국민 마크</a>
+      <a href="index.html#gallery">업종별 작업</a>
+      <a href="index.html#shorts">쇼츠</a>
+    </nav>
+    <a class="nav-cta" href="index.html#diagnosis">진단 신청 <span class="arr">→</span></a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ WORKS HERO ============ -->
+<section class="whero">
+  <div class="wrap">
+    <span class="eyebrow rv">Works</span>
+    <h1 class="h2 rv rv-d1">업종마다,<br>다른 <span class="accent">얼굴</span>이 필요합니다.</h1>
+    <p class="lead rv rv-d2">1999년부터 지금까지 쌓아온 업종별 로고 제작·CI·BI 사례입니다. 카페와 제조업의 고민은 다르고, 병의원과 공공기관이 지켜야 할 톤도 다릅니다. 아래 필터로 우리 업종과 가장 가까운 사례부터 확인해보세요.</p>
+    <div class="hero-stats rv rv-d3">
+      <div class="stat"><b>1999</b><span>창립 · 27년 업력</span></div>
+      <div class="stat"><b><span class="n" data-count="2893">0</span><sup>+</sup></b><span>누적 프로젝트</span></div>
+      <div class="stat"><b>상표등록</b><span>성공 980건</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="sec" id="gallery" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv">Industry Gallery</span>
+        <h2 class="h2 rv rv-d1" style="margin-top:16px">지금까지 쌓아온<br>업종별 브랜드 사례</h2>
+      </div>
+      <p class="lead rv rv-d2">아래 사례는 실제 진행 방식을 바탕으로 재구성한 가상 시안입니다. 상호와 로고는 상담 전 이해를 돕기 위한 예시이며, 실제 결과물은 브랜드에 맞게 새로 설계됩니다.</p>
+    </div>
+
+    <div class="chips rv" id="chips" role="tablist" aria-label="업종 필터">
+      <button class="chip on" data-cat="all" aria-pressed="true">전체</button>
+      <button class="chip" data-cat="food" aria-pressed="false">식음료</button>
+      <button class="chip" data-cat="retail" aria-pressed="false">유통·제품</button>
+      <button class="chip" data-cat="tech" aria-pressed="false">IT·스타트업</button>
+      <button class="chip" data-cat="mfg" aria-pressed="false">제조·B2B</button>
+      <button class="chip" data-cat="med" aria-pressed="false">병의원·전문직</button>
+      <button class="chip" data-cat="edu" aria-pressed="false">문화·교육</button>
+      <button class="chip" data-cat="public" aria-pressed="false">공공·협회</button>
+    </div>
+    <p class="gal-count" id="galCount" aria-live="polite">전체 21개 사례</p>
+
+    <div class="gal" id="gal">
+      <article class="gcard wide rv" data-cat="food">
+        <div class="media"><img src="assets/signage.webp" alt="흰 벽면에 검은 사인이 설치된 카페 외관" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">식음료 · F&amp;B</span><h3>카페 · 브랜드 사이니지</h3><p>골목 안쪽이어도 멀리서부터 눈에 띄는 흰 벽 위의 마크.</p></div>
+      </article>
+      <article class="gcard rv rv-d1" data-cat="retail">
+        <div class="media"><img src="assets/b_awning.jpg" alt="기하학적 마크가 그려진 매장 차양" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">유통 · 제품</span><h3>플라워숍 · 브랜드마크</h3><p>차양 하나로 완성되는 거리의 첫인상.</p></div>
+      </article>
+      <article class="gcard rv rv-d2" data-cat="tech">
+        <div class="media"><img src="assets/ctx_phone.jpg" alt="스마트폰 화면에 표시된 서비스 아이콘" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">IT · 스타트업</span><h3>핀테크 서비스 · 앱 아이콘</h3><p>손바닥 위 화면에서 완성되는 첫 신뢰.</p></div>
+      </article>
+      <article class="gcard wide rv rv-d3" data-cat="mfg">
+        <div class="media"><img src="assets/b_van.jpg" alt="기업 마크가 부착된 배송 차량" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">제조 · B2B</span><h3>물류 서비스 · CI 시스템</h3><p>도로 위를 달리는 차량 한 대가 곧 광고판.</p></div>
+      </article>
+      <article class="gcard rv" data-cat="med">
+        <div class="media"><img src="assets/ind_medical.webp" alt="의원 로비의 사이니지" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">병의원 · 전문직</span><h3>치과의원 · CI</h3><p>간판보다 먼저 신뢰가 읽히는 마크.</p></div>
+      </article>
+      <article class="gcard rv rv-d1" data-cat="edu">
+        <div class="media"><img src="assets/ind_edu.webp" alt="교육기관 안내물에 적용된 엠블럼" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">문화 · 교육</span><h3>교육기관 · 브랜드 개발</h3><p>학부모가 먼저 알아보는 학원의 얼굴.</p></div>
+      </article>
+      <article class="gcard rv rv-d2" data-cat="public">
+        <div class="media"><img src="assets/ctx_produce.jpg" alt="농산물 판매대의 나무 상자" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">공공 · 협회</span><h3>농산물 유통 인증마크 · 현장 적용</h3><p>시장 좌판 위에서도 또렷하게 읽히는 마크.</p></div>
+      </article>
+      <article class="gcard rv rv-d3" data-cat="food">
+        <div class="media"><img src="assets/b_coffee.jpg" alt="원두 봉투와 커피컵에 적용된 로스터리 마크" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">식음료 · F&amp;B</span><h3>스페셜티 로스터리 · BI</h3><p>원두 봉투와 컵, 어디서 만나도 같은 브랜드.</p></div>
+      </article>
+      <article class="gcard rv" data-cat="retail">
+        <div class="media"><img src="assets/b_merch.jpg" alt="에코백과 캡에 적용된 브랜드 마크" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">유통 · 제품</span><h3>라이프스타일 브랜드 · 굿즈 시스템</h3><p>에코백과 캡, 그 자체로 팔리는 브랜드 경험.</p></div>
+      </article>
+      <article class="gcard rv rv-d1" data-cat="tech">
+        <div class="media"><img src="assets/ind_tech.webp" alt="스타트업 사무실의 브랜드 사이니지" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">IT · 스타트업</span><h3>SaaS 스타트업 · CI 개발</h3><p>투자 미팅 전에 먼저 준비해 둔 얼굴.</p></div>
+      </article>
+      <article class="gcard rv rv-d2" data-cat="mfg">
+        <div class="media"><img src="assets/ind_mfg.webp" alt="제조업체 카탈로그에 적용된 CI" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">제조 · B2B</span><h3>정밀부품 제조 · CI 리뉴얼</h3><p>해외 바이어 앞에 내미는 카탈로그의 표정.</p></div>
+      </article>
+      <article class="gcard rv rv-d3" data-cat="med">
+        <div class="media"><img src="assets/b_plaque.jpg" alt="건물 외벽의 황동 사인 플레이트" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">병의원 · 전문직</span><h3>법률사무소 · 사인 시스템</h3><p>황동 현판 하나에 담은 사무소의 무게.</p></div>
+      </article>
+      <article class="gcard rv" data-cat="edu">
+        <div class="media"><img src="assets/ind_culture.webp" alt="문화기관 배너에 적용된 BI" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">문화 · 교육</span><h3>문화재단 · BI</h3><p>공공성과 예술성, 그 사이의 균형.</p></div>
+      </article>
+      <article class="gcard rv rv-d1" data-cat="public">
+        <div class="media"><img src="assets/ctx_milk.jpg" alt="유제품 패키지 목업" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">공공 · 협회</span><h3>유가공 인증마크 · 패키지 적용</h3><p>냉장고 안에서도 먼저 손이 가는 신뢰.</p></div>
+      </article>
+      <article class="gcard wide rv rv-d2" data-cat="public">
+        <div class="media"><img src="assets/monument.webp" alt="공공기관 로비의 인증마크 조형물" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">공공 · 협회</span><h3>지자체 인증마크 · 로비 조형물</h3><p>한 번 세우면 수십 년, 오래 남을 형태로.</p></div>
+      </article>
+      <article class="gcard rv rv-d3" data-cat="food">
+        <div class="media"><img src="assets/ind_cafe.webp" alt="카페 브랜드가 적용된 컵과 인테리어" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">식음료 · F&amp;B</span><h3>동네 카페 · 브랜드 리뉴얼</h3><p>간판만 바꿨을 뿐인데 객단가가 달라졌습니다.</p></div>
+      </article>
+      <article class="gcard wide rv" data-cat="retail">
+        <div class="media"><img src="assets/packaging.webp" alt="브랜드 마크가 적용된 박스와 쇼핑백 3종" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">유통 · 제품</span><h3>제품 라인 3종 · 패키지 시스템</h3><p>박스든 쇼핑백이든 흔들리지 않는 하나의 룰.</p></div>
+      </article>
+      <article class="gcard rv rv-d1" data-cat="tech">
+        <div class="media"><img src="assets/b_guideline.jpg" alt="브랜드 마크 스케치가 담긴 노트" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">IT · 스타트업</span><h3>테크 브랜드 · 아이덴티티 스케치</h3><p>숫자 하나 없이도 방향이 보이는 초기 스케치.</p></div>
+      </article>
+      <article class="gcard rv rv-d2" data-cat="mfg">
+        <div class="media"><img src="assets/b_facade.jpg" alt="야간에 조명이 켜진 회사 건물 외관 마크" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">제조 · B2B</span><h3>제조기업 사옥 · 사이니지</h3><p>야간에도 꺼지지 않는 회사의 얼굴.</p></div>
+      </article>
+      <article class="gcard rv rv-d3" data-cat="edu">
+        <div class="media"><img src="assets/b_letterpress.jpg" alt="레터프레스로 인쇄한 명함" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">문화 · 교육</span><h3>공방 브랜드 · 레터프레스 명함</h3><p>손끝의 질감까지 브랜드가 되는 순간.</p></div>
+      </article>
+      <article class="gcard rv" data-cat="med">
+        <div class="media"><img src="assets/cards.webp" alt="레드 엣지 명함 세트" loading="lazy"><span class="tag-sample">SAMPLE</span></div>
+        <div class="body"><span class="cat">병의원 · 전문직</span><h3>회계·세무 사무소 · 명함</h3><p>받는 순간 신뢰가 전달되는 종이 한 장.</p></div>
+      </article>
+    </div>
+
+    <div class="gal-foot rv"><p>업종보다 중요한 건, 지금 브랜드가 어디서 막혀 있는지입니다.</p><a class="btn btn-ghost" href="index.html#diagnosis">우리 업종도 가능한지 물어보기 <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="sec offwhite cta-sec" id="consult-cta">
+  <div class="wrap">
+    <span class="eyebrow rv">Brand Consultation</span>
+    <h2 class="h2 rv rv-d1" style="margin-top:16px">지금 사용중인 로고,<br>전문가에게 먼저<br>확인해보세요.</h2>
+    <p class="lead rv rv-d2">지금 쓰는 로고 파일 하나면 됩니다. 문제점부터 파악하고, 방향을 함께 잡아드립니다.</p>
+    <a class="btn btn-red rv rv-d2" href="index.html#diagnosis">무료 브랜드 진단 받기 <span class="arr">→</span></a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="top">
+      <a class="logo" href="index.html">Logobank<i></i></a>
+      <div class="links">
+        <a href="index.html#diagnosis">브랜드 진단</a><a href="index.html#cases">비포·애프터</a><a href="index.html#marks">국민 마크</a><a href="index.html#gallery">업종별 작업</a><a href="index.html#shorts">쇼츠</a><a href="index.html#brand-intuition">브랜드인투션</a><a href="index.html#diagnosis">상담</a><a href="privacy.html">개인정보처리방침</a>
+      </div>
+    </div>
+    <div class="meta">
+      <span>1999년부터 로고를 만듭니다.</span>
+      <span>© 1999-2026 Logobank. All rights reserved.</span>
+      <span>logobank.co.kr</span>
+      <span>Brand Intuition Co.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky"><a class="btn btn-red" href="index.html#diagnosis">브랜드 진단 신청</a></div>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // nav state + sticky CTA (index.html과 동일한 패턴, #consult-cta 근접 시 숨김)
+  const nav = document.getElementById('nav');
+  const sticky = document.getElementById('sticky');
+  let nearCta = false;
+  const onScroll = () => {
+    const y = scrollY;
+    nav.classList.toggle('solid', y > 40);
+    sticky.classList.toggle('show', y > innerHeight * 0.9 && !nearCta);
+  };
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  new IntersectionObserver(es => {
+    const e = es[0];
+    nearCta = e.isIntersecting || e.boundingClientRect.top < 0;
+    onScroll();
+  }, {rootMargin: '0px 0px -35% 0px'}).observe(document.getElementById('consult-cta'));
+
+  // reveal
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold: .12, rootMargin: '0px 0px -8% 0px'});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  // counter (index.html과 동일)
+  const cio = new IntersectionObserver((es) => {
+    es.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, end = +el.dataset.count;
+      if (reduce) { el.textContent = end.toLocaleString(); cio.unobserve(el); return; }
+      const t0 = performance.now(), dur = 1600;
+      const tick = (t) => {
+        const p = Math.min(1, (t - t0) / dur), k = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(end * k).toLocaleString();
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick); cio.unobserve(el);
+    });
+  }, {threshold: .6});
+  document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+
+  // gallery filter (b.html #gallery 필터 로직 재사용: data-cat 매칭 + chip on 토글)
+  const chips = document.getElementById('chips'), items = [...document.querySelectorAll('#gal .gcard')], countEl = document.getElementById('galCount');
+  function applyFilter(cat) {
+    chips.querySelectorAll('.chip').forEach(c => { const on = c.dataset.cat === cat; c.classList.toggle('on', on); c.setAttribute('aria-pressed', String(on)); });
+    let n = 0; const shown = [];
+    items.forEach(it => {
+      const hide = cat !== 'all' && it.dataset.cat !== cat;
+      it.classList.toggle('hide', hide);
+      if (!hide) { n++; shown.push(it); }
+    });
+    countEl.textContent = (cat === 'all' ? '전체 ' : '') + n + '개 사례';
+    if (!reduce) shown.forEach((it, i) => { it.style.animation = 'none'; void it.offsetWidth; it.style.animationDelay = Math.min(i, 7) * 35 + 'ms'; it.style.animation = ''; });
+  }
+  chips.addEventListener('click', e => { const c = e.target.closest('.chip'); if (c) applyFilter(c.dataset.cat); });
+})();
+</script>
+</body>
+</html>
