@@ -81,7 +81,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .nav.solid{background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
 .logo{font-family:var(--font-serif);font-weight:600;font-size:24px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
-.logo i{width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block}
+.logo img{height:24px;width:auto;display:block}
 .nav-links{display:none;gap:32px;font-size:14px;font-weight:600;color:var(--ink2)}
 .nav-links a{position:relative;padding:6px 0}
 .nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--red);transition:width .3s var(--ease)}
@@ -156,7 +156,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="로고뱅크 홈">Logobank<i></i></a>
+    <a class="logo" href="index.html" aria-label="로고뱅크 홈"><img src="assets/logobank_wordmark.png" alt="로고뱅크"></a>
     <nav class="nav-links" aria-label="주요 메뉴">
       <a href="index.html#diagnosis">브랜드 진단</a>
       <a href="index.html#cases">비포·애프터</a>
@@ -205,7 +205,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
       <button class="chip" data-cat="edu" aria-pressed="false">문화·교육</button>
       <button class="chip" data-cat="public" aria-pressed="false">공공·협회</button>
     </div>
-    <p class="gal-count" id="galCount" aria-live="polite">전체 20개 사례</p>
+    <p class="gal-count" id="galCount" aria-live="polite">전체 32개 사례</p>
 
     <div class="gal" id="gal">
       <article class="gcard rv" data-cat="food">
@@ -284,9 +284,57 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
         <div class="media"><img src="assets/w_mk_valley.webp" alt="경기도 아름다운 계곡 만들기 로고" loading="lazy"></div>
         <div class="body"><span class="cat">공공 · 협회</span><h3>경기도 · 아름다운 계곡 만들기 로고</h3><p>"아름다운 계곡 만들기" 캠페인을 위한 로고 디자인입니다.</p></div>
       </article>
-      <article class="gcard rv rv-d3" data-cat="retail">
-        <div class="media"><img src="assets/w_mq_goat.webp" alt="흑염소 진액 제품 패키지 2종" loading="lazy"></div>
-        <div class="body"><span class="cat">유통 · 제품</span><h3>흑염소 진액 · 제품 패키지</h3><p>흑염소 진액 제품 2종에 적용한 패키지 디자인입니다.</p></div>
+      <article class="gcard wide rv rv-d3" data-cat="med">
+        <div class="media"><img src="assets/w_wk_lalaola_box.webp" alt="라라올라 제품 박스와 병 패키지" loading="lazy"></div>
+        <div class="body"><span class="cat">병의원 · 전문직</span><h3>라라올라 · 제품 패키지</h3><p>건강기능 제품 라라올라의 박스와 병에 적용한 패키지 디자인입니다.</p></div>
+      </article>
+      <article class="gcard wide rv" data-cat="public">
+        <div class="media"><img src="assets/w_wk_kdata.webp" alt="K data 한국데이터진흥원 명함" loading="lazy"></div>
+        <div class="body"><span class="cat">공공 · 협회</span><h3>한국데이터진흥원 · 명함</h3><p>Korea Data Agency 로고를 적용한 명함 디자인입니다.</p></div>
+      </article>
+      <article class="gcard wide rv rv-d2" data-cat="public">
+        <div class="media"><img src="assets/w_wk_valley_board.webp" alt="아름다운 계곡 만들기 옥외 광고판" loading="lazy"></div>
+        <div class="body"><span class="cat">공공 · 협회</span><h3>경기도 아름다운 계곡 만들기 · 옥외 광고</h3><p>계곡 정비 사업 브랜드를 적용한 옥외 광고판입니다.</p></div>
+      </article>
+      <article class="gcard wide rv rv-d3" data-cat="mfg">
+        <div class="media"><img src="assets/w_wk_sysolution.webp" alt="SY솔루션 전시장 배너" loading="lazy"></div>
+        <div class="body"><span class="cat">제조 · B2B</span><h3>SY솔루션 · 전시 배너</h3><p>전시장에 설치한 SY Solution 브랜드 배너입니다.</p></div>
+      </article>
+      <article class="gcard wide rv rv-d4" data-cat="mfg">
+        <div class="media"><img src="assets/w_wk_bokuk_forms.webp" alt="보국전자 명함과 봉투, 사원증" loading="lazy"></div>
+        <div class="body"><span class="cat">제조 · B2B</span><h3>보국전자 · 서식류</h3><p>명함, 봉투, 사원증까지 하나의 시스템으로 맞춘 서식류입니다.</p></div>
+      </article>
+      <article class="gcard wide rv" data-cat="med">
+        <div class="media"><img src="assets/w_wk_dream.webp" alt="드림성형외과 로고" loading="lazy"></div>
+        <div class="body"><span class="cat">병의원 · 전문직</span><h3>드림성형외과 · 로고</h3><p>DREAM PLASTIC SURGERY 심볼과 워드마크 디자인입니다.</p></div>
+      </article>
+      <article class="gcard wide rv rv-d2" data-cat="med">
+        <div class="media"><img src="assets/w_wk_aicu.webp" alt="AI:CU 명함" loading="lazy"></div>
+        <div class="body"><span class="cat">병의원 · 전문직</span><h3>AI:CU · 명함</h3><p>"Always Care You" 슬로건을 담은 AI:CU 명함 디자인입니다.</p></div>
+      </article>
+      <article class="gcard wide rv rv-d3" data-cat="tech">
+        <div class="media"><img src="assets/w_wk_hint.webp" alt="hint 로고 카드" loading="lazy"></div>
+        <div class="body"><span class="cat">IT · 스타트업</span><h3>hint · 플랫폼 로고</h3><p>플랫폼 서비스 hint의 심볼과 워드마크입니다.</p></div>
+      </article>
+      <article class="gcard wide rv rv-d4" data-cat="tech">
+        <div class="media"><img src="assets/w_wk_lgu_guide.webp" alt="LG U+ 브랜드 가이드라인 스프레드" loading="lazy"></div>
+        <div class="body"><span class="cat">IT · 스타트업</span><h3>LG U+ · 브랜드 가이드라인</h3><p>서브 브랜드 적용 규정을 정리한 브랜드 가이드라인 문서입니다.</p></div>
+      </article>
+      <article class="gcard wide rv" data-cat="tech">
+        <div class="media"><img src="assets/w_wk_oceanfront.webp" alt="오션프론트 노트와 머그" loading="lazy"></div>
+        <div class="body"><span class="cat">IT · 스타트업</span><h3>오션프론트 · 금융 브랜드</h3><p>노트와 머그에 적용한 OCEANFRONT 로고 디자인입니다.</p></div>
+      </article>
+      <article class="gcard wide rv rv-d2" data-cat="retail">
+        <div class="media"><img src="assets/w_wk_nineware.webp" alt="나인웨어 제품 카탈로그" loading="lazy"></div>
+        <div class="body"><span class="cat">유통 · 제품</span><h3>나인웨어 · 키친 카탈로그</h3><p>주방용품 브랜드 Nine ware의 제품 카탈로그입니다.</p></div>
+      </article>
+      <article class="gcard wide rv rv-d3" data-cat="retail">
+        <div class="media"><img src="assets/w_wk_cellmein.webp" alt="셀미인 화장품 용기 라인" loading="lazy"></div>
+        <div class="body"><span class="cat">유통 · 제품</span><h3>셀미인 · 화장품 라인</h3><p>화장품 용기 라인 전체에 적용한 브랜드 디자인입니다.</p></div>
+      </article>
+      <article class="gcard wide rv rv-d4" data-cat="retail">
+        <div class="media"><img src="assets/w_wk_ipraves.webp" alt="아이프라브 로고" loading="lazy"></div>
+        <div class="body"><span class="cat">유통 · 제품</span><h3>아이프라브 · 여행 브랜드</h3><p>"여행의 시작과 끝" 슬로건을 담은 I PRAVES 로고입니다.</p></div>
       </article>
     </div>
 
@@ -310,7 +358,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 <footer class="footer">
   <div class="wrap">
     <div class="top">
-      <a class="logo" href="index.html">Logobank<i></i></a>
+      <a class="logo" href="index.html"><img src="assets/logobank_wordmark.png" alt="로고뱅크"></a>
       <div class="links">
         <a href="index.html#diagnosis">브랜드 진단</a><a href="index.html#cases">비포·애프터</a><a href="index.html#marks">국민 마크</a><a href="index.html#gallery">업종별 작업</a><a href="index.html#shorts">쇼츠</a><a href="index.html#brand-intuition">브랜드인투션</a><a href="index.html#diagnosis">상담</a><a href="privacy.html">개인정보처리방침</a>
       </div>
