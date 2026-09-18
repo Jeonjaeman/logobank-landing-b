@@ -288,7 +288,7 @@ select.status-sel.s-done{color:var(--mute)}
       b.textContent = MODULES[k].label;
       if (MODULES[k].badge && counts[k]) { var c = document.createElement("span"); c.className = "cnt"; c.textContent = counts[k]; b.appendChild(c); }
       if (k === cur) b.className = "on";
-      b.addEventListener("click", function () { cur = k; editId = null; hideForm(); renderTabs(); load(); });
+      b.addEventListener("click", function () { cur = k; editId = null; hideForm(); renderTabs(); load(); refreshCounts().then(renderTabs); });
       box.appendChild(b);
     });
     document.getElementById("btn-new").style.display = MODULES[cur].noCreate ? "none" : "";
