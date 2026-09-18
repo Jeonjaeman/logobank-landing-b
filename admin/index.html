@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관리자 | 로고뱅크</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFFFF;--bg2:#F5F5F3;--ink:#0D0D0D;--ink2:#2B2B2B;--mute:#6E6E6A;--line:#E4E4DF;--red:#E0202E;
+  --font-kr:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  --font-en:"Inter Tight","Pretendard Variable",Pretendard,sans-serif;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-kr);color:var(--ink);background:var(--bg2);line-height:1.5;font-size:15px;min-height:100vh;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.eyebrow{font-family:var(--font-en);font-size:11px;letter-spacing:.2em;font-weight:700;text-transform:uppercase;color:var(--mute)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:700;font-size:14px;border:1.5px solid transparent;transition:transform .3s var(--ease),background .25s,color .25s,border-color .25s}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:#c41a26}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-sm{padding:8px 14px;font-size:12.5px}
+.btn:disabled{opacity:.5;cursor:default}
+.logo img{height:22px;width:auto;display:block}
+
+/* 로그인 */
+.login-box{max-width:420px;margin:12vh auto 0;background:#fff;border:1px solid var(--line);border-radius:22px;padding:44px 40px;box-shadow:0 30px 80px -40px rgba(0,0,0,.25)}
+.login-box .logo{display:flex;justify-content:center;margin-bottom:8px}
+.login-box .sub{text-align:center;color:var(--mute);font-size:13px;margin-bottom:28px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:12px;font-weight:700;color:var(--mute);letter-spacing:.02em;margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;font:inherit;font-size:15px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(13,13,13,.06)}
+.field textarea{min-height:120px;resize:vertical}
+.field.inline{display:flex;align-items:center;gap:10px}
+.field.inline label{margin:0;color:var(--ink);font-weight:600;font-size:14px}
+.field.inline input[type=checkbox]{width:18px;height:18px;accent-color:var(--red);padding:0}
+.field .hint{font-size:12px;color:var(--mute);margin-top:6px}
+.msg-err{color:var(--red);font-size:13px;margin-top:12px;min-height:18px}
+.setup{max-width:640px;margin:10vh auto;background:#fff;border:1px solid var(--line);border-radius:22px;padding:40px}
+.setup h2{font-size:20px;margin:14px 0 10px}
+.setup p{color:var(--ink2);font-size:14px;line-height:1.7}
+.setup code{background:var(--bg2);padding:2px 6px;border-radius:5px;font-size:13px}
+.setup ol{margin:14px 0 0 20px;color:var(--ink2);font-size:14px;line-height:1.9}
+
+/* 관리자 레이아웃 */
+.ad-wrap{max-width:1240px;margin:0 auto;padding:28px 24px 90px}
+.ad-top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 22px;background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:22px;flex-wrap:wrap}
+.ad-top .who{color:var(--mute);font-size:13px}
+.ad-top .left{display:flex;align-items:center;gap:16px}
+.ad-top .left .tag{font-family:var(--font-en);font-size:10px;letter-spacing:.2em;font-weight:700;color:var(--red);border:1px solid rgba(224,32,46,.35);padding:3px 8px;border-radius:999px}
+.ad-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.ad-tabs button{background:#fff;color:var(--ink2);border:1px solid var(--line);padding:11px 20px;border-radius:999px;font-weight:700;font-size:14px;transition:.2s}
+.ad-tabs button:hover{border-color:var(--ink)}
+.ad-tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ad-tabs button .cnt{display:inline-block;min-width:20px;padding:0 6px;margin-left:8px;border-radius:999px;background:var(--red);color:#fff;font-size:11px;font-family:var(--font-en);line-height:20px;text-align:center}
+.ad-tabs button.on .cnt{background:#fff;color:var(--red)}
+.ad-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.ad-bar .desc{color:var(--mute);font-size:13px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+table.ad{width:100%;border-collapse:collapse;font-size:14px}
+table.ad th{font-family:var(--font-en);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);text-align:left;padding:14px 14px;border-bottom:1px solid var(--line);white-space:nowrap;background:#FAFAF8}
+table.ad td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+table.ad tr:last-child td{border-bottom:0}
+table.ad tr:hover td{background:#FCFCFB}
+.thumb{width:72px;height:48px;object-fit:cover;border-radius:6px;border:1px solid var(--line);background:var(--bg2);display:block}
+.thumb.sq{width:48px;height:48px}
+.ad-actions{white-space:nowrap;text-align:right}
+.ad-actions button{background:#fff;border:1px solid var(--line);color:var(--ink2);padding:6px 12px;font-size:12.5px;border-radius:8px;margin-left:4px;transition:.2s}
+.ad-actions button:hover{border-color:var(--ink);color:var(--ink)}
+.ad-actions button.danger:hover{border-color:var(--red);color:var(--red)}
+.pill{display:inline-block;font-family:var(--font-en);font-size:10.5px;letter-spacing:.12em;font-weight:700;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--mute)}
+.pill.on{border-color:rgba(224,32,46,.4);color:var(--red);background:rgba(224,32,46,.06)}
+.pill.src{color:var(--ink2);background:var(--bg2)}
+.ad-form{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;margin-bottom:22px}
+.ad-form.show{display:block}
+.ad-form h3{font-size:17px;font-weight:800;letter-spacing:-.02em;margin-bottom:20px}
+.ad-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ad-form .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.btnrow{display:flex;gap:10px;margin-top:20px}
+.empty{text-align:center;color:var(--mute);padding:54px 0;font-size:14px}
+.memo-input{width:100%;font:inherit;background:var(--bg2);border:1px solid transparent;color:var(--ink);padding:8px 10px;font-size:13px;border-radius:8px;margin-top:8px}
+.memo-input:focus{outline:none;background:#fff;border-color:var(--ink)}
+.memo-input.saved{border-color:var(--red)}
+td .msg-full{white-space:pre-wrap;color:var(--ink2);font-size:13.5px;max-width:460px;line-height:1.6}
+select.status-sel{font:inherit;background:#fff;border:1px solid var(--line);color:var(--ink);padding:7px 10px;font-size:13px;border-radius:8px}
+select.status-sel.s-new{border-color:rgba(224,32,46,.5);color:var(--red);font-weight:700}
+select.status-sel.s-done{color:var(--mute)}
+.upload-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.upload-row input[type=file]{font-size:13px}
+.preview{max-width:220px;max-height:140px;border:1px solid var(--line);border-radius:8px;margin-top:8px;display:none;object-fit:contain;background:var(--bg2)}
+.preview.show{display:block}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;font-size:13.5px;opacity:0;pointer-events:none;transition:.3s var(--ease);z-index:99}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:800px){.ad-form .row2,.ad-form .row3{grid-template-columns:1fr}table.ad{font-size:13px}.card{overflow-x:auto}td .msg-full{max-width:260px}.ad-wrap{padding:16px 12px 80px}}
+</style>
+</head>
+<body>
+
+<!-- ================= 설정 안내 (URL/KEY 미입력) ================= -->
+<div id="view-setup" class="setup" style="display:none">
+  <span class="eyebrow">Logobank Admin</span>
+  <h2>연결 설정이 아직 안 됐습니다</h2>
+  <p>이 관리자 페이지는 Supabase 프로젝트에 연결되어 동작합니다. <code>assets/js/db.js</code> 의 <code>URL</code> 과 <code>KEY</code> 가 비어 있습니다.</p>
+  <ol>
+    <li>Supabase 프로젝트 생성 후 <code>backend/schema.sql</code> 을 SQL Editor 에서 실행</li>
+    <li>Authentication &gt; Users 에서 관리자 계정 추가 (schema.sql 의 <code>is_admin()</code> 에 적힌 이메일)</li>
+    <li>Project Settings &gt; API 의 URL 과 anon/publishable key 를 <code>db.js</code> 에 입력</li>
+  </ol>
+  <p style="margin-top:14px">자세한 순서는 <code>backend/SETUP.md</code> 를 참고하세요.</p>
+</div>
+
+<!-- ================= 로그인 ================= -->
+<div id="view-login" class="login-box" style="display:none">
+  <a class="logo" href="../index.html"><img src="../assets/logobank_wordmark.png" alt="로고뱅크"></a>
+  <p class="sub">관리자 로그인</p>
+  <div class="field"><label for="lg-email">이메일</label><input id="lg-email" type="email" autocomplete="username" inputmode="email"></div>
+  <div class="field"><label for="lg-pw">비밀번호</label><input id="lg-pw" type="password" autocomplete="current-password"></div>
+  <button class="btn btn-red" style="width:100%" id="lg-btn">로그인</button>
+  <div class="msg-err" id="lg-err"></div>
+</div>
+
+<!-- ================= 관리자 ================= -->
+<div id="view-admin" class="ad-wrap" style="display:none">
+  <div class="ad-top">
+    <div class="left">
+      <a class="logo" href="../index.html" target="_blank" rel="noopener"><img src="../assets/logobank_wordmark.png" alt="로고뱅크"></a>
+      <span class="tag">ADMIN</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <span class="who" id="who"></span>
+      <a class="btn btn-ghost btn-sm" href="../index.html" target="_blank" rel="noopener">사이트 보기 ↗</a>
+      <button class="btn btn-ghost btn-sm" id="logout">로그아웃</button>
+    </div>
+  </div>
+  <div class="ad-tabs" id="tabs"></div>
+  <div class="ad-form" id="form-box"></div>
+  <div class="ad-bar">
+    <span class="desc" id="desc"></span>
+    <button class="btn btn-red btn-sm" id="btn-new">+ 새로 등록</button>
+  </div>
+  <div class="card" id="list-box"></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/db.js"></script>
+<script>
+(function () {
+  "use strict";
+  var URL = LB_DB.url, KEY = LB_DB.key;
+  var token = sessionStorage.getItem("lb-admin-token") || null;
+
+  var CAT = { food: "식음료 · F&B", retail: "유통 · 제품", tech: "IT · 스타트업", mfg: "제조 · B2B", med: "병의원 · 전문직", edu: "문화 · 교육", public: "공공 · 협회" };
+  var CAT_OPTS = Object.keys(CAT).map(function (k) { return { v: k, t: CAT[k] }; });
+
+  /* ---------------- 모듈 정의 ---------------- */
+  var MODULES = {
+    inquiries: {
+      label: "문의접수 관리", table: "inquiries", order: "id.desc", noCreate: true,
+      desc: "홈페이지 상담 폼으로 접수된 문의입니다. 상태를 바꾸고 메모를 남길 수 있습니다. 메모는 입력 후 Enter 로 저장됩니다.",
+      renderList: renderInquiries, badge: true
+    },
+    works: {
+      label: "실적 관리", table: "works", order: "sort_order.asc,id.desc",
+      desc: "실적 갤러리(works.html)에 표시되는 카드입니다. 정렬 순서가 작을수록 앞에 나오고, 게시 OFF 는 숨겨집니다.",
+      cols: [
+        { key: "image_url", th: "이미지", img: true },
+        { key: "title", th: "제목" },
+        { key: "category", th: "업종", map: CAT },
+        { key: "wide", th: "가로형", pill: true },
+        { key: "sort_order", th: "순서" },
+        { key: "published", th: "게시", pill: true }
+      ],
+      fields: [
+        { key: "title", label: "제목 (예: 블루오션 · 매장 간판)", type: "text", req: true },
+        { key: "category", label: "업종", type: "select", options: CAT_OPTS, req: true, def: "food" },
+        { key: "description", label: "한 줄 설명 (무엇을 만들어 어디에 적용했는지)", type: "textarea" },
+        { key: "image_url", label: "이미지 (파일을 고르면 자동 업로드됩니다. 가로형은 16:9, 세로형은 4:5 로 잘립니다)", type: "image", folder: "works", req: true },
+        { key: "wide", label: "가로형 카드 (2칸 차지)", type: "check", def: false },
+        { key: "sort_order", label: "정렬 순서 (작을수록 앞)", type: "number", def: 100 },
+        { key: "published", label: "게시", type: "check", def: true }
+      ]
+    },
+    popups: {
+      label: "이벤트팝업 관리", table: "popups", order: "sort_order.asc",
+      desc: "메인 진입 시 뜨는 팝업입니다. 여러 개 등록하면 계단식으로 겹쳐 표시되고, 방문자는 '오늘 하루 열지 않기'를 선택할 수 있습니다.",
+      cols: [
+        { key: "image_url", th: "이미지", img: true },
+        { key: "title", th: "제목" },
+        { key: "width", th: "폭(px)" },
+        { key: "starts_at", th: "시작" },
+        { key: "ends_at", th: "종료" },
+        { key: "sort_order", th: "순서" },
+        { key: "is_active", th: "노출", pill: true }
+      ],
+      fields: [
+        { key: "title", label: "제목 (선택. 제목/내용/이미지 중 하나만 있어도 게시됩니다)", type: "text" },
+        { key: "body", label: "내용 (선택, 줄바꿈 유지)", type: "textarea" },
+        { key: "image_url", label: "이미지 (선택. 파일을 고르면 자동 업로드됩니다)", type: "image", folder: "popups" },
+        { key: "link", label: "링크 (선택. 예: works.html 또는 https://...)", type: "text" },
+        { key: "width", label: "팝업 가로 크기(px)", type: "number", def: 400 },
+        { key: "starts_at", label: "노출 시작일 (선택)", type: "date" },
+        { key: "ends_at", label: "노출 종료일 (선택)", type: "date" },
+        { key: "sort_order", label: "정렬 순서 (겹칠 때 표시 순서)", type: "number", def: 0 },
+        { key: "is_active", label: "노출 ON", type: "check", def: true }
+      ]
+    }
+  };
+
+  var cur = "inquiries", rows = [], editId = null, counts = {};
+
+  /* ---------------- 공통 ---------------- */
+  function toast(msg) {
+    var t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show");
+    clearTimeout(toast._h); toast._h = setTimeout(function () { t.classList.remove("show"); }, 2400);
+  }
+  function api(method, path, body) {
+    return fetch(URL + "/rest/v1/" + path, {
+      method: method,
+      headers: { "apikey": KEY, "Authorization": "Bearer " + token, "Content-Type": "application/json", "Prefer": "return=minimal" },
+      body: body ? JSON.stringify(body) : undefined
+    }).then(function (r) {
+      if (r.status === 401) { logout(); throw new Error("세션이 만료되었습니다. 다시 로그인해주세요."); }
+      if (!r.ok) return r.text().then(function (t) { throw new Error(t || r.status); });
+      return null;
+    });
+  }
+  function apiGet(path) {
+    return fetch(URL + "/rest/v1/" + path, { headers: { "apikey": KEY, "Authorization": "Bearer " + token } })
+      .then(function (r) {
+        if (r.status === 401) { logout(); throw new Error("세션 만료"); }
+        if (!r.ok) throw new Error(r.status);
+        return r.json();
+      });
+  }
+  function imgSrc(u) { return /^https?:|^data:/.test(u || "") ? u : "../" + u; }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function fmt(iso) { if (!iso) return ""; var d = new Date(iso); return d.toLocaleDateString("ko-KR", { year: "2-digit", month: "2-digit", day: "2-digit" }) + " " + d.toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" }); }
+
+  /* ---------------- 로그인 ---------------- */
+  function login() {
+    var email = document.getElementById("lg-email").value.trim();
+    var pw = document.getElementById("lg-pw").value;
+    var err = document.getElementById("lg-err");
+    err.textContent = "";
+    if (!email || !pw) { err.textContent = "이메일과 비밀번호를 입력해주세요."; return; }
+    document.getElementById("lg-btn").disabled = true;
+    fetch(URL + "/auth/v1/token?grant_type=password", {
+      method: "POST",
+      headers: { "apikey": KEY, "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email, password: pw })
+    }).then(function (r) { return r.json(); }).then(function (j) {
+      if (!j.access_token) { err.textContent = "이메일 또는 비밀번호가 올바르지 않습니다."; return; }
+      token = j.access_token;
+      sessionStorage.setItem("lb-admin-token", token);
+      sessionStorage.setItem("lb-admin-email", email);
+      enter();
+    }).catch(function () { err.textContent = "로그인 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요."; })
+      .finally(function () { document.getElementById("lg-btn").disabled = false; });
+  }
+  function logout() {
+    token = null;
+    sessionStorage.removeItem("lb-admin-token");
+    document.getElementById("view-admin").style.display = "none";
+    document.getElementById("view-login").style.display = "block";
+  }
+  function enter() {
+    document.getElementById("view-login").style.display = "none";
+    document.getElementById("view-admin").style.display = "block";
+    document.getElementById("who").textContent = sessionStorage.getItem("lb-admin-email") || "";
+    refreshCounts().then(renderTabs);
+    load();
+  }
+  function refreshCounts() {
+    return apiGet("inquiries?select=id&status=eq.new").then(function (d) { counts.inquiries = d.length; })
+      .catch(function () { counts.inquiries = 0; });
+  }
+
+  /* ---------------- 탭 ---------------- */
+  function renderTabs() {
+    var box = document.getElementById("tabs");
+    box.innerHTML = "";
+    Object.keys(MODULES).forEach(function (k) {
+      var b = document.createElement("button");
+      b.textContent = MODULES[k].label;
+      if (MODULES[k].badge && counts[k]) { var c = document.createElement("span"); c.className = "cnt"; c.textContent = counts[k]; b.appendChild(c); }
+      if (k === cur) b.className = "on";
+      b.addEventListener("click", function () { cur = k; editId = null; hideForm(); renderTabs(); load(); });
+      box.appendChild(b);
+    });
+    document.getElementById("btn-new").style.display = MODULES[cur].noCreate ? "none" : "";
+    document.getElementById("desc").textContent = MODULES[cur].desc || "";
+  }
+
+  /* ---------------- 목록 ---------------- */
+  function load() {
+    var m = MODULES[cur];
+    var listBox = document.getElementById("list-box");
+    listBox.innerHTML = '<div class="empty">불러오는 중...</div>';
+    apiGet(m.table + "?select=*&order=" + m.order).then(function (data) {
+      rows = data;
+      if (m.renderList) { m.renderList(listBox); return; }
+      renderTable(listBox);
+    }).catch(function (e) {
+      listBox.innerHTML = '<div class="empty">불러오지 못했습니다: ' + esc(e.message) + "</div>";
+    });
+  }
+
+  function renderTable(listBox) {
+    var m = MODULES[cur];
+    if (!rows.length) { listBox.innerHTML = '<div class="empty">등록된 항목이 없습니다. [+ 새로 등록]으로 추가하세요.</div>'; return; }
+    var t = document.createElement("table"); t.className = "ad";
+    t.innerHTML = "<tr>" + m.cols.map(function (c) { return "<th>" + esc(c.th) + "</th>"; }).join("") + "<th></th></tr>";
+    rows.forEach(function (r) {
+      var tr = document.createElement("tr");
+      m.cols.forEach(function (c) {
+        var td = document.createElement("td");
+        var v = r[c.key];
+        if (c.img) { if (v) { var im = document.createElement("img"); im.className = "thumb" + (r.wide === false && cur === "works" ? " sq" : ""); im.src = imgSrc(v); im.alt = ""; im.loading = "lazy"; td.appendChild(im); } else td.textContent = "-"; }
+        else if (c.pill) td.innerHTML = '<span class="pill ' + (v ? "on" : "") + '">' + (v ? "ON" : "OFF") + "</span>";
+        else if (c.map) td.textContent = c.map[v] || v || "";
+        else if (c.date) td.textContent = fmt(v);
+        else td.textContent = v == null ? "" : String(v);
+        tr.appendChild(td);
+      });
+      var act = document.createElement("td"); act.className = "ad-actions";
+      act.innerHTML = '<button data-a="edit">수정</button><button data-a="del" class="danger">삭제</button>';
+      act.querySelector('[data-a="edit"]').addEventListener("click", function () { openForm(r); });
+      act.querySelector('[data-a="del"]').addEventListener("click", function () {
+        if (!confirm("삭제하시겠습니까? 되돌릴 수 없습니다.")) return;
+        api("DELETE", m.table + "?id=eq." + r.id).then(function () { toast("삭제했습니다"); load(); }).catch(function (e) { alert("삭제 실패: " + e.message); });
+      });
+      tr.appendChild(act);
+      t.appendChild(tr);
+    });
+    listBox.innerHTML = ""; listBox.appendChild(t);
+  }
+
+  /* ---------------- 문의접수 (전용 뷰) ---------------- */
+  function renderInquiries(listBox) {
+    if (!rows.length) { listBox.innerHTML = '<div class="empty">접수된 문의가 없습니다.</div>'; return; }
+    var t = document.createElement("table"); t.className = "ad";
+    t.innerHTML = "<tr><th>#</th><th>접수</th><th>이름 · 연락처</th><th>회사 / 브랜드</th><th>업종 · 서비스</th><th>내용 · 메모</th><th>로고</th><th>상태</th><th></th></tr>";
+    rows.forEach(function (r) {
+      var tr = document.createElement("tr");
+      var cells = [];
+      cells.push("<td>" + r.id + "</td>");
+      cells.push("<td style='white-space:nowrap;color:var(--mute);font-size:12.5px'>" + esc(fmt(r.created_at)) + (r.source ? "<br><span class='pill src'>" + esc(r.source) + "안</span>" : "") + "</td>");
+      cells.push("<td style='white-space:nowrap'><b>" + esc(r.name) + "</b><br><a href='tel:" + esc(String(r.phone).replace(/[^0-9+]/g, "")) + "' style='color:var(--red)'>" + esc(r.phone) + "</a></td>");
+      cells.push("<td>" + esc(r.brand || "-") + "</td>");
+      cells.push("<td style='font-size:13px;color:var(--ink2)'>" + esc(r.industry || "-") + "<br>" + esc(r.service || "-") + "</td>");
+      tr.innerHTML = cells.join("");
+      var tdMsg = document.createElement("td");
+      var msg = document.createElement("div"); msg.className = "msg-full"; msg.textContent = r.message || "(내용 없음)";
+      var memo = document.createElement("input"); memo.className = "memo-input"; memo.placeholder = "관리자 메모 (입력 후 Enter 저장)"; memo.value = r.admin_memo || "";
+      memo.addEventListener("keydown", function (ev) {
+        if (ev.key !== "Enter") return;
+        api("PATCH", "inquiries?id=eq." + r.id, { admin_memo: memo.value }).then(function () { memo.classList.add("saved"); toast("메모를 저장했습니다"); }).catch(function (e) { alert("저장 실패: " + e.message); });
+      });
+      tdMsg.appendChild(msg); tdMsg.appendChild(memo); tr.appendChild(tdMsg);
+      var tdLogo = document.createElement("td");
+      if (r.logo_url) { var a = document.createElement("a"); a.href = r.logo_url; a.target = "_blank"; a.rel = "noopener"; var im = document.createElement("img"); im.className = "thumb sq"; im.src = imgSrc(r.logo_url); im.alt = "첨부 로고"; im.style.objectFit = "contain"; a.appendChild(im); tdLogo.appendChild(a); }
+      else tdLogo.textContent = "-";
+      tr.appendChild(tdLogo);
+      var tdSt = document.createElement("td");
+      var sel = document.createElement("select"); sel.className = "status-sel s-" + (r.status || "new");
+      [["new", "신규"], ["in-progress", "처리중"], ["done", "완료"]].forEach(function (o) {
+        var op = document.createElement("option"); op.value = o[0]; op.textContent = o[1]; if (r.status === o[0]) op.selected = true; sel.appendChild(op);
+      });
+      sel.addEventListener("change", function () {
+        api("PATCH", "inquiries?id=eq." + r.id, { status: sel.value }).then(function () { sel.className = "status-sel s-" + sel.value; refreshCounts().then(renderTabs); toast("상태를 변경했습니다"); }).catch(function (e) { alert("변경 실패: " + e.message); });
+      });
+      tdSt.appendChild(sel); tr.appendChild(tdSt);
+      var act = document.createElement("td"); act.className = "ad-actions";
+      act.innerHTML = '<button class="danger">삭제</button>';
+      act.querySelector("button").addEventListener("click", function () {
+        if (!confirm("이 문의를 삭제하시겠습니까?")) return;
+        api("DELETE", "inquiries?id=eq." + r.id).then(function () { refreshCounts().then(renderTabs); load(); });
+      });
+      tr.appendChild(act);
+      t.appendChild(tr);
+    });
+    listBox.innerHTML = ""; listBox.appendChild(t);
+  }
+
+  /* ---------------- 등록/수정 폼 ---------------- */
+  function uploadImage(folder, file, input, preview) {
+    var path = folder + "/" + Date.now() + "_" + file.name.replace(/[^a-zA-Z0-9._-]/g, "_").slice(-80);
+    return fetch(URL + "/storage/v1/object/images/" + path, {
+      method: "POST",
+      headers: { "apikey": KEY, "Authorization": "Bearer " + token, "Content-Type": file.type || "application/octet-stream" },
+      body: file
+    }).then(function (r) {
+      if (!r.ok) return r.text().then(function (t) { throw new Error(t || r.status); });
+      var url = URL + "/storage/v1/object/public/images/" + path;
+      input.value = url; preview.src = url; preview.classList.add("show");
+      toast("이미지를 업로드했습니다");
+    });
+  }
+  function openForm(row) {
+    var m = MODULES[cur];
+    editId = row ? row.id : null;
+    var box = document.getElementById("form-box");
+    box.innerHTML = "<h3>" + esc(m.label) + " · " + (editId ? "수정" : "새로 등록") + "</h3>";
+    m.fields.forEach(function (f) {
+      var wrap = document.createElement("div");
+      wrap.className = "field" + (f.type === "check" ? " inline" : "");
+      var id = "ff-" + f.key;
+      var lbl = document.createElement("label"); lbl.setAttribute("for", id); lbl.textContent = f.label;
+      var input, val = row ? row[f.key] : (f.def !== undefined ? f.def : "");
+      if (f.type === "textarea") { input = document.createElement("textarea"); input.value = val || ""; }
+      else if (f.type === "select") {
+        input = document.createElement("select");
+        f.options.forEach(function (o) { var op = document.createElement("option"); op.value = o.v; op.textContent = o.t; if (val === o.v) op.selected = true; input.appendChild(op); });
+      }
+      else if (f.type === "check") { input = document.createElement("input"); input.type = "checkbox"; input.checked = !!val; }
+      else if (f.type === "image") {
+        input = document.createElement("input"); input.type = "text"; input.value = val || ""; input.placeholder = "파일을 업로드하면 주소가 자동으로 채워집니다";
+        var urow = document.createElement("div"); urow.className = "upload-row";
+        var up = document.createElement("input"); up.type = "file"; up.accept = "image/*";
+        var prev = document.createElement("img"); prev.className = "preview" + (val ? " show" : ""); if (val) prev.src = imgSrc(val); prev.alt = "";
+        up.addEventListener("change", function () {
+          var file = up.files[0]; if (!file) return;
+          if (file.size > 8 * 1024 * 1024) { alert("8MB 이하 이미지만 업로드할 수 있습니다."); up.value = ""; return; }
+          up.disabled = true;
+          uploadImage(f.folder || "misc", file, input, prev).catch(function (e) { alert("이미지 업로드 실패: " + e.message); }).finally(function () { up.disabled = false; });
+        });
+        input.addEventListener("change", function () { if (input.value) { prev.src = imgSrc(input.value); prev.classList.add("show"); } else prev.classList.remove("show"); });
+        urow.appendChild(up);
+        input._extra = [urow, prev];
+      }
+      else { input = document.createElement("input"); input.type = f.type; input.value = val == null ? "" : val; }
+      input.id = id;
+      if (f.type === "check") { wrap.appendChild(input); wrap.appendChild(lbl); }
+      else { wrap.appendChild(lbl); wrap.appendChild(input); if (input._extra) input._extra.forEach(function (x) { wrap.appendChild(x); }); }
+      box.appendChild(wrap);
+    });
+    var btns = document.createElement("div"); btns.className = "btnrow";
+    btns.innerHTML = '<button class="btn btn-red">저장</button><button class="btn btn-ghost">취소</button>';
+    btns.children[0].addEventListener("click", save);
+    btns.children[1].addEventListener("click", hideForm);
+    box.appendChild(btns);
+    box.classList.add("show");
+    box.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  function hideForm() { document.getElementById("form-box").classList.remove("show"); editId = null; }
+  function save() {
+    var m = MODULES[cur], body = {}, missing = null;
+    m.fields.forEach(function (f) {
+      var el = document.getElementById("ff-" + f.key), v;
+      if (f.type === "check") v = el.checked;
+      else if (f.type === "number") v = el.value === "" ? null : Number(el.value);
+      else v = el.value.trim() === "" ? null : el.value.trim();
+      if (f.req && (v === null || v === "")) missing = missing || f.label;
+      body[f.key] = v;
+    });
+    if (missing) { alert("필수 항목을 입력해주세요: " + missing.split(" (")[0]); return; }
+    if (cur === "popups" && !body.title && !body.body && !body.image_url) { alert("제목, 내용, 이미지 중 하나는 있어야 팝업이 표시됩니다."); return; }
+    var p = editId ? api("PATCH", m.table + "?id=eq." + editId, body) : api("POST", m.table, body);
+    p.then(function () { toast(editId ? "수정했습니다" : "등록했습니다"); hideForm(); load(); })
+     .catch(function (e) { alert("저장 실패: " + e.message); });
+  }
+
+  /* ---------------- 시작 ---------------- */
+  if (!LB_DB.ready) { document.getElementById("view-setup").style.display = "block"; return; }
+  document.getElementById("view-login").style.display = "block";
+  document.getElementById("lg-btn").addEventListener("click", login);
+  document.getElementById("lg-pw").addEventListener("keydown", function (e) { if (e.key === "Enter") login(); });
+  document.getElementById("lg-email").addEventListener("keydown", function (e) { if (e.key === "Enter") document.getElementById("lg-pw").focus(); });
+  document.getElementById("logout").addEventListener("click", logout);
+  document.getElementById("btn-new").addEventListener("click", function () { openForm(null); });
+  if (token) enter();
+})();
+</script>
+</body>
+</html>

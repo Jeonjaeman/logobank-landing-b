@@ -142,7 +142,11 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .footer{padding:56px 0 40px;border-top:1px solid var(--line)}
 .footer .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start}
 .footer .links{display:flex;flex-wrap:wrap;gap:20px;font-size:14px;color:var(--ink2)}
-.footer .meta{margin-top:28px;font-size:12.5px;color:var(--mute);display:flex;flex-wrap:wrap;gap:8px 20px}
+.footer .meta{margin-top:28px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--mute);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:14px 24px}
+.footer .corp{display:flex;flex-wrap:wrap;gap:6px 18px;line-height:1.6}
+.footer .corp b{flex-basis:100%;font-size:13.5px;color:var(--ink);font-weight:700}
+.footer .corp a{color:inherit}
+@media(hover:hover){.footer .corp a:hover{color:var(--ink)}}
 
 /* ============ STICKY CTA (mobile) ============ */
 .sticky{position:fixed;left:16px;right:16px;bottom:16px;z-index:55;display:none;transform:translateY(120%);transition:transform .5s var(--ease)}
@@ -364,16 +368,21 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
       </div>
     </div>
     <div class="meta">
-      <span>1999년부터 로고를 만듭니다.</span>
-      <span>© 1999-2026 Logobank. All rights reserved.</span>
-      <span>logobank.co.kr</span>
-      <span>Brand Intuition Co.</span>
+      <div class="corp">
+        <b>로고뱅크 (주)브랜드인투이션</b>
+        <span>서울시 마포구 월드컵로 13길 55-24</span>
+        <span>연구소 경기도 고양시 덕양구 원흥동 704 아크비즈 504</span>
+        <span>Tel. <a href="tel:0222639708">02-2263-9708</a></span>
+        <span>Email. <a href="mailto:thebranding@naver.com">thebranding@naver.com</a></span>
+      </div>
+      <span class="copy">© 1999-2026 Logobank. All rights reserved.</span>
     </div>
   </div>
 </footer>
 
 <div class="sticky" id="sticky"><a class="btn btn-red" href="index.html#diagnosis">브랜드 진단 신청</a></div>
 
+<script src="assets/js/db.js"></script>
 <script>
 (function(){
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -418,7 +427,8 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
   document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
 
   // gallery filter (b.html #gallery 필터 로직 재사용: data-cat 매칭 + chip on 토글)
-  const chips = document.getElementById('chips'), items = [...document.querySelectorAll('#gal .gcard')], countEl = document.getElementById('galCount');
+  const chips = document.getElementById('chips'), countEl = document.getElementById('galCount');
+  let items = [...document.querySelectorAll('#gal .gcard')];
   function applyFilter(cat) {
     chips.querySelectorAll('.chip').forEach(c => { const on = c.dataset.cat === cat; c.classList.toggle('on', on); c.setAttribute('aria-pressed', String(on)); });
     let n = 0; const shown = [];
@@ -431,6 +441,28 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
     if (!reduce) shown.forEach((it, i) => { it.style.animation = 'none'; void it.offsetWidth; it.style.animationDelay = Math.min(i, 7) * 35 + 'ms'; it.style.animation = ''; });
   }
   chips.addEventListener('click', e => { const c = e.target.closest('.chip'); if (c) applyFilter(c.dataset.cat); });
+
+  // 관리자에서 등록한 실적이 있으면 DB 데이터로 갤러리를 다시 그린다 (없으면 위 정적 카드 유지)
+  if (window.LB_DB && LB_DB.ready) {
+    const CAT = { food: '식음료 · F&B', retail: '유통 · 제품', tech: 'IT · 스타트업', mfg: '제조 · B2B', med: '병의원 · 전문직', edu: '문화 · 교육', public: '공공 · 협회' };
+    LB_DB.get('works?published=eq.true&select=*&order=sort_order.asc,id.desc').then(rows => {
+      if (!rows || !rows.length) return;
+      const gal = document.getElementById('gal'); gal.innerHTML = '';
+      rows.forEach((r, i) => {
+        const a = document.createElement('article');
+        a.className = 'gcard' + (r.wide ? ' wide' : '') + ' rv in' + (i % 4 ? ' rv-d' + (i % 4) : '');
+        a.dataset.cat = r.category;
+        a.innerHTML = '<div class="media"><img loading="lazy"></div><div class="body"><span class="cat"></span><h3></h3><p></p></div>';
+        const im = a.querySelector('img'); im.src = r.image_url; im.alt = r.title;
+        a.querySelector('.cat').textContent = CAT[r.category] || r.category;
+        a.querySelector('h3').textContent = r.title;
+        a.querySelector('p').textContent = r.description || '';
+        gal.appendChild(a);
+      });
+      items = [...gal.querySelectorAll('.gcard')];
+      applyFilter((chips.querySelector('.chip.on') || {}).dataset?.cat || 'all');
+    }).catch(() => {});
+  }
 })();
 </script>
 </body>
