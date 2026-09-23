@@ -616,6 +616,15 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
   // before/after: scroll-linked wipe everywhere + pointer follow on fine pointers
 
+  // 문의 알림 메일 (FormSubmit). 실패해도 접수 자체는 성공 처리한다.
+  const MAIL_TO = 'https://formsubmit.co/ajax/6815edbe8858332a8aee1c18af35bcec';   /* jeonjaeman9668@gmail.com 해시 주소 (소스에 메일 노출 방지) */
+  function notifyByEmail(fields) {
+    try {
+      fetch(MAIL_TO, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.assign({ _subject: '[로고뱅크] 상담 신청 - ' + (fields['이름'] || ''), _cc: 'thelogo@naver.com', _captcha: 'false', _template: 'table' }, fields)) }).catch(function () {});
+    } catch (e) {}
+  }
+
   // form chips (single-select per group) + submit
   const formState = {ind: '', need: []};
   document.querySelectorAll('#fInd .chip').forEach(c => c.addEventListener('click', () => { document.querySelectorAll('#fInd .chip').forEach(x => x.classList.toggle('on', x === c)); formState.ind = c.dataset.v; }));
@@ -638,6 +647,16 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
       }
       sbtn.disabled = false;
     }
+    notifyByEmail({
+      '이름': form.name.value.trim(),
+      '연락처': form.phone.value.trim(),
+      '회사명': form.brand.value.trim() || '-',
+      '업종': formState.ind || '-',
+      '필요서비스': (formState.need || []).join(', ') || '-',
+      '문의내용': form.message.value.trim() || '-',
+      '접수시각': new Date().toLocaleString('ko-KR'),
+      '신청경로': 'B안'
+    });
     formCard.classList.add('sent');
   });
   // industry ask link: preselect chip in form by current gallery filter
